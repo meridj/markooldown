@@ -1,8 +1,19 @@
+/*
+** Packages
+*/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+/*
+** Containers
+*/
+import { Markooldown } from './containers';
+
+/*
+** Styles
+*/
+import './index.css';
+
+ReactDOM.render(<Markooldown />, document.getElementById('root'));
 registerServiceWorker();
