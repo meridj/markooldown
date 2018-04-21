@@ -1,5 +1,6 @@
 .preview {
   padding: 1.5rem;
+  margin: 0 2rem;
   word-wrap: break-word;
   hyphens: auto;
 }
