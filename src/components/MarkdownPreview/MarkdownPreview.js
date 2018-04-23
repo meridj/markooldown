@@ -10,6 +10,8 @@ const MarkdownPreview = ({ dangerouslySetInnerHTML }) => (
   <div className="preview" dangerouslySetInnerHTML={dangerouslySetInnerHTML} />
 );
 
-MarkdownPreview.propTypes = {};
+MarkdownPreview.propTypes = {
+  dangerouslySetInnerHTML: PropTypes.object.isRequired
+};
 
 export default MarkdownPreview;

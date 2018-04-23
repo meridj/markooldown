@@ -36,6 +36,20 @@ class Markooldown extends Component {
     });
   }
 
+  download(data, filename, type) {
+    const file = new Blob([data], { type: type });
+    const a = document.createElement('a'),
+      url = URL.createObjectURL(file);
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    }, 0);
+  }
+
   render() {
     const { inputValue } = this.state;
     return (
@@ -46,6 +60,13 @@ class Markooldown extends Component {
             __html: marked(inputValue, { sanitize: true })
           }}
         />
+        <button
+          onClick={() =>
+            this.download(this.state.inputValue, 'test.md', 'markdown')
+          }
+        >
+          Download
+        </button>
       </div>
     );
   }
