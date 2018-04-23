@@ -7,7 +7,7 @@ import marked from 'marked';
 /*
 ** Components
 */
-import { Input, MarkdownPreview } from '../../components/';
+import { Input, MarkdownPreview, Button } from '../../components/';
 
 /*
 ** Datas
@@ -36,7 +36,7 @@ class Markooldown extends Component {
     });
   }
 
-  download(data, filename, type) {
+  downloadMarkdownFile(data, filename, type) {
     const file = new Blob([data], { type: type });
     const a = document.createElement('a'),
       url = URL.createObjectURL(file);
@@ -52,7 +52,14 @@ class Markooldown extends Component {
 
   render() {
     const { inputValue } = this.state;
-    return (
+    return [
+      <Button
+        onClick={this.downloadMarkdownFile}
+        inputValueToFileValue={this.state.inputValue}
+      >
+        Export Markdown
+      </Button>,
+
       <div className="markooldown">
         <Input onChange={this.handleChangeOnInput} value={inputValue} />
         <MarkdownPreview
@@ -60,15 +67,8 @@ class Markooldown extends Component {
             __html: marked(inputValue, { sanitize: true })
           }}
         />
-        <button
-          onClick={() =>
-            this.download(this.state.inputValue, 'test.md', 'markdown')
-          }
-        >
-          Download
-        </button>
       </div>
-    );
+    ];
   }
 }
 

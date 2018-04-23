@@ -1,0 +1,22 @@
+button {
+  cursor: pointer;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+  background: #ff4365;
+  border: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #df3a58;
+}
+
+button:active {
+  background: #df3a58;
+}

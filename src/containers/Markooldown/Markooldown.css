@@ -1,6 +1,7 @@
 .markooldown {
-  width: 70%;
-  margin: 3rem auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  width: 90%;
+  margin: 6rem auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
