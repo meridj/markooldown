@@ -25,15 +25,17 @@ class Markooldown extends Component {
     this.state = {
       inputValue: localStorage.getItem('markdown') || defaultValueMd
     };
-
     this.handleChangeOnInput = this.handleChangeOnInput.bind(this);
   }
 
   handleChangeOnInput(evt) {
     const newInputValue = evt.target.value;
-    this.setState({ inputValue: newInputValue }, () => {
-      localStorage.setItem('markdown', this.state.inputValue);
-    });
+    this.setState(
+      {
+        inputValue: newInputValue
+      },
+      () => localStorage.setItem('markdown', this.state.inputValue)
+    );
   }
 
   downloadMarkdownFile(data, filename, type) {
@@ -55,11 +57,9 @@ class Markooldown extends Component {
     return [
       <Button
         onClick={this.downloadMarkdownFile}
-        inputValueToFileValue={this.state.inputValue}
-      >
+        inputValueToFileValue={this.state.inputValue}>
         Export Markdown
       </Button>,
-
       <div className="markooldown">
         <Input onChange={this.handleChangeOnInput} value={inputValue} />
         <MarkdownPreview
