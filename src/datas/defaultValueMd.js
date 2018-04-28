@@ -1,24 +1,4 @@
-const defaultValue = `
-    # Un titre 1
-    ## Un titre 2
-    ### Un titre 3
-    #### Un titre 4
-    ##### Un titre 5
-    ###### Un titre 6
-
-    *Un texte en italique*
-
-    **un text en gras**
-
-    Une superbe liste :
-    - Hyperspace
-    - Big Bang
-    - Explorer
-
-    Un lien trop cool : [meridj](https://www.meridj.fr/)
-
-
-    made with <3 by meridj
-`;
+const defaultValue =
+  '# Title 1\n## Title 2\n### Title 3\n#### Title 4\nMy favorite Javascript libraries and frameworks :\n* [React](https://reactjs.org/)\n* [Express](http://expressjs.com/fr/)\n* [Redux](https://redux.js.org/)\n* [GraphQl](https://graphql.org/learn/)\n* Suggest one ? [Contact me](https://www.linkedin.com/in/mehdi-meridja-1b1880140/)\n\n*Best link **ever** * [🤭 meridj portfolio 🤭](https://meridj.fr)\n\nMade with ❤ by meridj';
 
 export default defaultValue;
