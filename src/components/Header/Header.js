@@ -27,8 +27,12 @@ const Header = ({ toggleModal, isModalOpen }) => {
       <LightSpeed when={!isModalOpen} right>
         <h1>Markooldown</h1>
       </LightSpeed>
-      <Button onClick={toggleModal}>Export Markdown</Button>
-      <Nav />
+      <LightSpeed when={!isModalOpen} bottom>
+        <Button onClick={toggleModal}>Export Markdown</Button>
+      </LightSpeed>
+      <LightSpeed when={!isModalOpen} left>
+        <Nav />
+      </LightSpeed>
     </header>
   );
 };
