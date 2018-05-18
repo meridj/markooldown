@@ -6,13 +6,21 @@
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   opacity: 0.8;
   background: #fdfbfb;
 }
 
 .header > h1 {
-  font-size: 1em;
+  font-size: 1.2em;
   font-style: italic;
   top: 1rem;
-  color: #7d7abc;
+  background-image: linear-gradient(
+    -225deg,
+    #3d4e81 0%,
+    #5753c9 48%,
+    #6e7ff3 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

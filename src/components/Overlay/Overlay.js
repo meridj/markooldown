@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import Fade from 'react-reveal/Fade';
 
 /**
  * Actions
@@ -18,7 +19,13 @@ const Overlay = ({ isOpen, onClick }) => {
   const haveToDisplay = isOpen ? { display: 'flex' } : { display: 'none' };
 
   return (
-    <div onClick={() => onClick()} className="overlay" style={haveToDisplay} />
+    <Fade duration={200} when={isOpen}>
+      <div
+        onClick={() => onClick()}
+        className="overlay"
+        style={haveToDisplay}
+      />
+    </Fade>
   );
 };
 

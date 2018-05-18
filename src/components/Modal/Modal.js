@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Fade from 'react-reveal/Fade';
 
 /**
  * Components
@@ -49,15 +50,17 @@ class Modal extends Component {
     const haveToDisplay = isOpen ? { display: 'flex' } : { display: 'none' };
 
     return (
-      <div className="modal" style={haveToDisplay}>
-        <h2>Export markdown</h2>
-        <p>The downloaded markdown file will be in your downloads folder</p>
-        <Input value={markdownFileName} onChange={this.handleChangeOnInput} />
-        <div className="buttons">
-          <Button onClick={toggleModal}>Cancel</Button>
-          <Button onClick={this.handleClickOnDownload}>Download</Button>
+      <Fade duration={200} when={isOpen}>
+        <div className="modal" style={haveToDisplay}>
+          <h2>Export markdown</h2>
+          <p>The downloaded markdown file will be in your downloads folder</p>
+          <Input value={markdownFileName} onChange={this.handleChangeOnInput} />
+          <div className="buttons">
+            <Button onClick={toggleModal}>Cancel</Button>
+            <Button onClick={this.handleClickOnDownload}>Download</Button>
+          </div>
         </div>
-      </div>
+      </Fade>
     );
   }
 }

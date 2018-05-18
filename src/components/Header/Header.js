@@ -3,11 +3,12 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import LightSpeed from 'react-reveal/LightSpeed';
 
 /**
  * Components
  */
-import Button from '../Button';
+import { Button, Nav } from '../';
 
 /**
  * Actions
@@ -19,13 +20,21 @@ import * as actions from '../../actions';
  */
 import './Header.css';
 
-const Header = ({ toggleModal }) => {
+const Header = ({ toggleModal, isModalOpen }) => {
+  console.log(isModalOpen);
   return (
     <header className="header">
-      <h1>Markooldown</h1>
+      <LightSpeed when={!isModalOpen} right>
+        <h1>Markooldown</h1>
+      </LightSpeed>
       <Button onClick={toggleModal}>Export Markdown</Button>
+      <Nav />
     </header>
   );
 };
 
-export default connect(null, actions)(Header);
+function mapStateToProps({ isModalOpen }) {
+  return { isModalOpen };
+}
+
+export default connect(mapStateToProps, actions)(Header);

@@ -5,5 +5,15 @@ import Header from './Header';
 import Modal from './Modal';
 import Overlay from './Overlay';
 import Input from './Input';
+import Nav from './Nav';
 
-export { Button, Textarea, MarkdownPreview, Header, Modal, Overlay, Input };
+export {
+  Button,
+  Textarea,
+  MarkdownPreview,
+  Header,
+  Modal,
+  Overlay,
+  Input,
+  Nav
+};
