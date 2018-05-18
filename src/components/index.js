@@ -1,5 +1,9 @@
 import Button from './Button';
-import Input from './Input';
+import Textarea from './Textarea';
 import MarkdownPreview from './MarkdownPreview';
+import Header from './Header';
+import Modal from './Modal';
+import Overlay from './Overlay';
+import Input from './Input';
 
-export { Button, Input, MarkdownPreview };
+export { Button, Textarea, MarkdownPreview, Header, Modal, Overlay, Input };

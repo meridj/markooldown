@@ -8,14 +8,8 @@ import React from 'react';
 */
 import './Button.css';
 
-const Button = ({ onClick, inputValueToFileValue, children }) => {
-  return (
-    <button
-      onClick={() => onClick(inputValueToFileValue, 'test.md', 'markdown')}
-    >
-      {children}
-    </button>
-  );
+const Button = ({ children, onClick }) => {
+  return <button onClick={() => onClick()}>{children}</button>;
 };
 
 export default Button;

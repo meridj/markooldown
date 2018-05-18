@@ -1,0 +1,10 @@
+.textarea {
+  background: #fdfbfb;
+  border: none;
+  resize: none;
+  padding: 1.5rem;
+  margin: 0 2rem;
+  font-size: 1.5em;
+  outline: none;
+  transition: 0.5s;
+}

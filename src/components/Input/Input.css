@@ -1,19 +1,9 @@
-.textarea {
-  background: #393634;
-  color: white;
-  border: none;
-  resize: none;
-  padding: 1.5rem;
-  margin: 0 2rem;
-  font-size: 1.5em;
+.input {
+  background: #fdfbfb;
+  font-size: 1.2em;
+  border: 1px solid #5753c9;
+  border-radius: 3px;
+  padding: 0.4rem;
   outline: none;
   transition: 0.5s;
-}
-
-.textarea:hover {
-  box-shadow: 0px 0px 5px 1px #393634;
-}
-
-.textarea:focus {
-  box-shadow: 0px 0px 5px 1px #393634;
 }

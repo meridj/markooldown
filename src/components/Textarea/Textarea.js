@@ -4,20 +4,21 @@ import PropTypes from 'prop-types';
 /*
 ** Styles
 */
-import './Input.css';
+import './Textarea.css';
 
-const Input = ({ onChange, value }) => (
-  <input
-    className="input"
-    placeholder="Markdown name"
+const Textarea = ({ onChange, value }) => (
+  <textarea
+    rows="30"
+    cols="40"
+    className="textarea"
     onChange={evt => onChange(evt)}
     value={value}
   />
 );
 
-Input.propTypes = {
+Textarea.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired
 };
 
-export default Input;
+export default Textarea;

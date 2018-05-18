@@ -1,0 +1,18 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.8;
+  background: #fdfbfb;
+}
+
+.header > h1 {
+  font-size: 1em;
+  font-style: italic;
+  top: 1rem;
+  color: #7d7abc;
+}

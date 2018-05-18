@@ -3,16 +3,23 @@
 */
 import React, { Component } from 'react';
 import marked from 'marked';
+import { connect } from 'react-redux';
 
 /*
 ** Components
 */
-import { Input, MarkdownPreview, Button } from '../../components/';
+import {
+  Textarea,
+  MarkdownPreview,
+  Header,
+  Modal,
+  Overlay
+} from '../../components/';
 
-/*
-** Datas
-*/
-import defaultValueMd from '../../datas/defaultValueMd';
+/**
+ * Actions
+ */
+import * as actions from '../../actions';
 
 /*
 ** Styles
@@ -22,54 +29,45 @@ import './Markooldown.css';
 class Markooldown extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      inputValue: localStorage.getItem('markdown') || defaultValueMd
-    };
+
     this.handleChangeOnInput = this.handleChangeOnInput.bind(this);
   }
 
+  /**
+   * Handlers
+   */
   handleChangeOnInput(evt) {
     const newInputValue = evt.target.value;
-    this.setState(
-      {
-        inputValue: newInputValue
-      },
-      () => localStorage.setItem('markdown', this.state.inputValue)
-    );
+
+    this.props.addMarkdownData(newInputValue);
   }
 
-  downloadMarkdownFile(data, filename, type) {
-    const file = new Blob([data], { type: type });
-    const a = document.createElement('a'),
-      url = URL.createObjectURL(file);
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(() => {
-      document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
-    }, 0);
-  }
-
+  /**
+   * Renderers
+   */
   render() {
-    const { inputValue } = this.state;
-    return [
-      <Button
-        onClick={this.downloadMarkdownFile}
-        inputValueToFileValue={this.state.inputValue}>
-        Export Markdown
-      </Button>,
-      <div className="markooldown">
-        <Input onChange={this.handleChangeOnInput} value={inputValue} />
-        <MarkdownPreview
-          dangerouslySetInnerHTML={{
-            __html: marked(inputValue, { sanitize: true })
-          }}
-        />
-      </div>
-    ];
+    const { markdown, isModalOpen, toggleModal } = this.props;
+
+    return (
+      <React.Fragment>
+        <Header />
+        <Overlay onClick={toggleModal} isOpen={isModalOpen} />
+        <Modal isOpen={isModalOpen} />
+        <div className="markooldown">
+          <Textarea onChange={this.handleChangeOnInput} value={markdown} />
+          <MarkdownPreview
+            dangerouslySetInnerHTML={{
+              __html: marked(markdown, { sanitize: true })
+            }}
+          />
+        </div>
+      </React.Fragment>
+    );
   }
 }
 
-export default Markooldown;
+function mapStateToProps({ markdown, isModalOpen }) {
+  return { markdown, isModalOpen };
+}
+
+export default connect(mapStateToProps, actions)(Markooldown);

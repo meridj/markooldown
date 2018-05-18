@@ -1,0 +1,17 @@
+.modal {
+  height: 30%;
+  width: 20%;
+  position: fixed;
+  top: 20%;
+  background: #fdfbfb;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  left: calc(50% - 20% / 2);
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
